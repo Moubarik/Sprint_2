@@ -24,7 +24,7 @@
   /* margin-top: 5%; */
 }
 .leftbox{
-      border: solid black;
+      /* border: solid black; */
 
       width: 20vw;
       height: 100vh;
@@ -217,14 +217,14 @@ width: 20%;
   justify-content: center;
   transform: translateY(-20%);
 }
-/* .revtext{
+.revtext{
   margin: top 10px;
   font-size: 04rem;
   font-weight:300; 
   display: flex;
   justify-content: center;
   align-items: center;
-  } */
+  }
   
 .inerbox1{
   background-image: url("food1.jpg");
