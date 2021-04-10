@@ -3,19 +3,22 @@ session_start();
 
 include("connection.php");
 include("functions.php");
-
 // ------------------------------------------
 if($_SERVER['REQUEST_METHOD'] == "POST")
-
 	{
 		//something was posted
     $Username=$_POST['Username'];
     $Email=$_POST['Email'];
     $Password=$_POST['Password'];
+    // if(password_verify($Password,$hash))
+    if(    $hash=password_hash($Password, PASSWORD_DEFAULT)
+  );
+
 		if(!empty($Username) && !empty($Email) && !empty($Password) )
 		{
+
 			//save to database
-			$query = "insert into users (username,email,password) values ('$Username','$Email','$Password')";
+			$query = "INSERT into users (username,email,password) values ('$Username','$Email','$hash')";
 
 			mysqli_query($con, $query);
 
@@ -58,9 +61,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <label for="Password">Enter Your Password</br></label>
     <input type="password" name="Password" required>
     <div class="sign">
-      <button type="submit" name="Signup">Sign up</button>
+      <button type="submit" name="Signup">Sign up</button> <br>
+</form>
+<form action="Login.php" >
+      <button type="submit" name="Log" >Log in</button><br>
+</form>
+      
+     
 
-      </form>
+
+     
 
 
     </div>

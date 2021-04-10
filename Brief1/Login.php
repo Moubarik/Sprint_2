@@ -13,6 +13,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		//something was posted
     $Email=$_POST['Email'];
     $Password=$_POST['Password'];
+
+    // $passy=password_hash("Password", PASSWORD_DEFAULT);
+    // if(password_verify('Password' ,$passy))
+
 		if(!empty($Email) && !empty($Password) )
 		{
 			//save to database
@@ -26,18 +30,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         {
     
           $user_data = mysqli_fetch_assoc($result);
-         if($user_data['password']=== $Password)
+        //  if($user_data['password']=== $hash );
+             if(password_verify($Password,$user_data['password']))
+
+
          {
           $_SESSION['email'] = $user_data['email'];
-          header("Location: admin.php");
+          header("Location: ManageDishes.php");
           die;
          }
         }
       }	
       echo "Wrong User name or Password!";
-		}else
-		{
-			echo "Wrong User name or Password!";
 		}
 	}
 // __________________________________________
@@ -82,7 +86,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <label for="Password">Enter Your Password</br></label>
     <input type="password" name="Password" required>
     <div class="sign">
-      <button type="submit" name="Login">Log in</button>
+      <button type="submit" name="Login">Log in</button><br>
+      <button type="submit" name="Login"> <a href="Signup.php">Register</button><br>
+
+      <!-- <a  href="index.php"> <img src=images/LOGO.png alt=""> -->
+ </a>
       </form>
 
     </div>

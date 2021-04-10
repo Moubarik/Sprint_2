@@ -4,7 +4,6 @@ function check_login($con)
 {
             if(isset($_SESSION['email']))
             {
-
                 $Email = $_SESSION['email'];
                 $query = "select * from users where email = '$Email' limit 1";
 

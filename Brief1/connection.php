@@ -1,5 +1,5 @@
 <?php
-
+$SITEURL= 'http://localhost/Brief1/'  ;
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
